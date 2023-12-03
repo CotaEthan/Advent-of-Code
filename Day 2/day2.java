@@ -7,8 +7,9 @@ class day2
 	{
 		//System.out.println("MAin\n");
 		int maxRed = 12;
-		int maxBlue = 14;
 		int maxGreen = 13;
+		int maxBlue = 14;
+
 		int pow = 0;
 		
 		List<Integer> numList = count(maxRed, maxBlue, maxGreen);
@@ -23,6 +24,7 @@ class day2
 	public static List<Integer> count(int maxRed, int maxBlue, int maxGreen)throws FileNotFoundException
 	{
 		System.out.println("count function\n");
+		
 		List<Integer> gameList = new ArrayList<Integer>();
 		int num = 0;	
 		
@@ -49,7 +51,7 @@ class day2
 					System.out.println("Here is green: "+green);
 			
 			
-			if(red<maxRed && blue<maxBlue && green<maxGreen)
+			if(red<=maxRed && blue<=maxBlue && green<=maxGreen)
 			{
 				gameList.add(num);
 			}
@@ -145,8 +147,7 @@ class day2
 	
 	public static int powerCalc(int maxRed, int maxBlue, int maxGreen)throws FileNotFoundException
 	{
-		System.out.println("count function\n");
-		List<Integer> gameList = new ArrayList<Integer>();
+		//List<Integer> gameList = new ArrayList<Integer>();
 		int num = 0;
 		int pow = 0;		
 		
@@ -165,18 +166,14 @@ class day2
 			num++;
 			s = input.nextLine();
 			
-			System.out.println("GGGGGGGGGGAAAAAAAAAAAME: "+num);
 			red = getColorMax(s, "r");
-					System.out.println("Here is red: "+red);
 			blue = getColorMax(s, "b");
-					System.out.println("Here is blue: "+blue);
 			green = getColorMax(s, "g");
-					System.out.println("Here is green: "+green);
 			
 			
-			if(red<maxRed && blue<maxBlue && green<maxGreen)
+			if(red<=maxRed && blue<=maxBlue && green<=maxGreen)
 			{
-				gameList.add(num);
+				//gameList.add(num);
 				pow += getPower(red, blue, green);
 			}
 			
