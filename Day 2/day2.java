@@ -9,11 +9,14 @@ class day2
 		int maxRed = 12;
 		int maxBlue = 14;
 		int maxGreen = 13;
+		int pow = 0;
 		
 		List<Integer> numList = count(maxRed, maxBlue, maxGreen);
+		pow = powerCalc(maxRed, maxBlue, maxGreen);
 		
 		System.out.print("___HERE IS THE LIST of GAMES___\n"+numList+"\n");
 		System.out.println("HERE    s u m    of GAMES: "+listSum(numList));
+		System.out.println("FINAL POWERLEVEL: "+pow);
 		
 	}
 	
@@ -44,6 +47,7 @@ class day2
 					System.out.println("Here is blue: "+blue);
 			green = getColorMax(s, "g");
 					System.out.println("Here is green: "+green);
+			
 			
 			if(red<maxRed && blue<maxBlue && green<maxGreen)
 			{
@@ -91,18 +95,18 @@ class day2
 				
 				if(temp.startsWith("red"))
 				{
-					holdR = holdR>n ? holdR : n;
+					holdR = holdR>=n ? holdR : n;
 					//System.out.println("in red: "+temp+"value: "+holdR);
 					
 				}
 				else if(temp.startsWith("blue"))
 				{
-					holdB = holdB>n ? holdB : n;
+					holdB = holdB>=n ? holdB : n;
 					//System.out.println("iun green: "+temp+"value: "+holdB);
 				}
 				else if(temp.startsWith("green"))
 				{
-					holdG = holdG>n ? holdG : n;
+					holdG = holdG>=n ? holdG : n;
 					//System.out.println("uin rbluer: "+temp+"value: "+holdG);
 				}
 				else
@@ -122,19 +126,71 @@ class day2
 		{
 			case "r":
 				return holdR;
-				//break;
 			case "b":
 				return holdB;
-				//break;
 			case "g":
 				return holdG;
-				//break;
 			default:
 				System.out.print("In default for switch");
-				return holdR;
-				//break;
+				return -1000;
 		}
 	}
+	
+	public static int getPower(int red, int blue, int green)
+	{
+		return red*blue*green;
+	}
+	
+	
+	
+	public static int powerCalc(int maxRed, int maxBlue, int maxGreen)throws FileNotFoundException
+	{
+		System.out.println("count function\n");
+		List<Integer> gameList = new ArrayList<Integer>();
+		int num = 0;
+		int pow = 0;		
+		
+		File file = new File("input.txt");
+		Scanner input = new Scanner(file);	
+		
+		int red = 0;
+		int blue = 0;
+		int green = 0;
+		
+		String s = "";	
+	
+		
+		while(input.hasNext())
+		{
+			num++;
+			s = input.nextLine();
+			
+			System.out.println("GGGGGGGGGGAAAAAAAAAAAME: "+num);
+			red = getColorMax(s, "r");
+					System.out.println("Here is red: "+red);
+			blue = getColorMax(s, "b");
+					System.out.println("Here is blue: "+blue);
+			green = getColorMax(s, "g");
+					System.out.println("Here is green: "+green);
+			
+			
+			if(red<maxRed && blue<maxBlue && green<maxGreen)
+			{
+				gameList.add(num);
+				pow += getPower(red, blue, green);
+			}
+			
+		}			
+		
+		return pow;
+	}	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }
