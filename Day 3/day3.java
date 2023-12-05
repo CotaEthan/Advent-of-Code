@@ -155,9 +155,7 @@ class day3
 	{
 		boolean flag = true;
 		int option = 0;
-		
 
-		//System.out.println(mapp.get(i).get(j));
 		
 		if(Character.isDigit(mapp.get(i).get(j).charAt(0)))
 		{
@@ -199,24 +197,28 @@ class day3
         int[] dc = {-1, 0, 1};
 
         // Iterate over adjacent positions
-        for (int rOffset : dr) {
-            for (int cOffset : dc) {
+        for (int rOffset : dr)
+		{
+            for (int cOffset : dc)
+			{
                 int newRow = row + rOffset;
                 int newCol = col + cOffset;
 
                 // Check if the new position is within bounds
-                if (newRow >= 0 && newRow < input.size() && newCol >= 0 && newCol < input.get(0).size()) {
+                if (newRow >= 0 && newRow < input.size() && newCol >= 0 && newCol < input.get(0).size())
+				{
                     String symbol = input.get(newRow).get(newCol);
- 
+            
                     // Check if the symbol is not a digit or '.'
-                    if (!Character.isDigit(symbol.charAt(0)) && !symbol.equals(".")) {
+                    if (!Character.isDigit(symbol.charAt(0)) && !symbol.equals("."))
+					{
                         return true; // There is an adjacent symbol
                     }
                 }
             }
         }
 
-        return false; // No adjacent symbol found
+        return false; // No adjacent symbol found              
 	}
 	
 	
