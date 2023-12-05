@@ -14,7 +14,7 @@ class day4
 	}
 	public static List<Integer> count()throws FileNotFoundException
 	{		
-		File f = new File("testinputFixed.txt");
+		File f = new File("inputFixed.txt");
 		Scanner input = new Scanner(f);
 		int count = 0;
 		
