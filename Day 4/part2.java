@@ -70,7 +70,7 @@ class part2
 			}
 		
 			
-			if(sumCount > 0)
+			//if(sumCount > 0)
 				sumSet.add(sumCount);
 			sumCount = 0;
 			
@@ -83,15 +83,16 @@ class part2
 			set.clear();
 			flag = true;
 			first = true;
-			if(sum>0)
-			{
+			//if(sum>0)
+			//{
 				points.add(sum);
 				sum = 0;
-			}
+			//}
 		}	
 		
 		
 		//return setMod(points, sumSet);
+		setMod(sumSet, 0);
 		return points;
 	}
 	
@@ -105,6 +106,20 @@ class part2
 		}
 		
 		return tote;
+	}
+	
+	public static int setMod(List<Integer> sumSet, int count)
+	{
+		int total = 0;
+		
+		if(count >= sumSet.size())
+			return total;
+		
+		total += setModRec(sumSet, couint)
+	}
+	public static int setModRec(List<Integer> sumSet, int count)
+	{
+		
 	}
 	
 	/*public static List<Integer> setMod(List<Integer> points, List<Integer> sumSet)
